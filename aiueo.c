@@ -1,30 +1,19 @@
 #include <stdio.h>
-
 int main (void)
+
 {
-    int money, mark,goukei;
+    int i,answer;
+    answer=0;
 
-    money=5000;
-    printf("“_”‚ğ“ü‚ê‚Ä");
-    scanf("%d",&mark);
+    for (i=1;i<=10;i++){
 
-    if(mark>=80){
-        goukei=money+2000;
-        printf("‚²‚Ù‚¤‚Ñ‚¾‚æ\n");
-    }else{
-        goukei=money-1000;
-        printf("Ÿ‚ÍŠæ’£‚Á‚Ä‚Ë\n");
+        answer=i+answer;
+        printf("%3d¨%3d\n",i,answer);
+
+
     }
 
-    printf("¡‚°‚Â‚Ì‚¨‚±‚Ã‚©‚¢‚Í%d‰~‚Å‚·\n",goukei);
 
 
     return 0;
-
 }
-
-
-
-
-
-    
