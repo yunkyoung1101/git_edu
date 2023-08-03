@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main (void)
-
+//¬Ñ
 {
   double eva1,eva2,eva3,score1,score2,score3,sum1,sum2,sum3,  sta1,sta2,sta3,sta,sta4,sta5,sta6;
 
