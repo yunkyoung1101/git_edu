@@ -4,6 +4,7 @@ int i,num,num1,num3,num4,num5,n,count=0,popnum,ennum,denum,j=0;
 int stack[10000];
 int stackqueue(void);
 int pushpop(void);
+int pushpop2(void);
 int enqueuedequeue(void);
 
 int stackqueue(void)
@@ -55,7 +56,7 @@ int pushpop(void)
         count++;
     }
     
-     for (i = count; 0 <= i; i--) {
+     for (i = count-1; 0 <= i; i--) {
         printf("%d\n",stack[i]);
     }
         return pushpop();
@@ -78,7 +79,9 @@ int pushpop(void)
     return pushpop();
     
     case 5:
-    printf("%d",stack[count-1]);
+    printf("%d\n",stack[count-1]);
+    return pushpop();
+
     default:
         break;
 }
