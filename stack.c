@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int i,num,num1,num3,num4,num5,n,count=0,popnum,ennum,denum,j=0;
+int i,num,n,num1,num3,num4,num5,n,count=0,popnum,ennum,denum,j=0;
 int stack[10000];
 int stackqueue(void);
 int pushpop(void);
@@ -39,7 +39,7 @@ int stackqueue(void)
 
 int pushpop(void)
 {
-    printf("push:1  pop:2 おわる:3 size:4  peek:5 ");
+    printf("push:1  pop:2 おわる:3 size:4  peek:5      ");
     scanf("%d",&num4);
 
     switch (num4)
@@ -64,10 +64,14 @@ int pushpop(void)
     case 2://pop
     for (j = 2; j <= count; j++) {
         printf("%d\n",stack[count-j]);
-       
     }
     count=count-1;
     
+     if (count<=0)
+       {
+        printf("要素がありませんpushしてください\n");
+       }
+       
      return pushpop();
 
     case 3:
@@ -79,7 +83,14 @@ int pushpop(void)
     return pushpop();
     
     case 5:
-    printf("%d\n",stack[count-1]);
+    if (count>1)
+    {
+       printf("%d\n",stack[0]);
+    }
+    else{
+        printf("要素がありません\n");
+    }
+    
     return pushpop();
 
     default:
@@ -90,12 +101,12 @@ int pushpop(void)
 }
 int enqueuedequeue(void)
 {
-     printf("enqueue:1  dequeue:2  おわる:3  size:4  peek:5");
+     printf("enqueue:1  dequeue:2  おわる:3  size:4  peek:5       ");
     scanf("%d",&ennum);
     switch (ennum)
     {
     case 1: //enqueue
-         for (i = count; i < 10000; i++) {
+         for (i = count; i < n; i++) {
        
         scanf("%d", &stack[i]);
         
@@ -116,6 +127,12 @@ int enqueuedequeue(void)
         stack[j]=stack[j+1];
         
         }
+
+        if (count<=1)
+        {
+            printf("要素がありませんenqueueしてください\n");
+        }
+        
         count=count-1;
       return enqueuedequeue();
 
@@ -127,7 +144,16 @@ int enqueuedequeue(void)
      return enqueuedequeue();
 
     case 5:
-    printf("%d\n",stack[0]);
+    if (stack[count-1]>0)
+    {
+        printf("%d\n",stack[0]);
+    }
+
+    else{
+        printf("要素がありません\n");
+    }
+    
+    
      return enqueuedequeue();
 
 
@@ -145,10 +171,17 @@ int main(void)
     printf("スタック:1\nキュー:2\n");
     scanf("%d",&num);
 
+    printf("要素の数は？\n");
+    scanf("%d",&n);
      printf("数入力してください:\n");
-    for (i = 0; i < 10000; i++) {
+    for (i = 0; i < n; i++) {
         printf("要素%d:", i);
         scanf("%d", &stack[i]);
+        
+        if (i>n)
+        {
+            break;
+        }
         
         if (stack[i]==-1)
         {
